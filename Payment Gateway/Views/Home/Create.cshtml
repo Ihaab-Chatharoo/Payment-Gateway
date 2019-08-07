@@ -1,0 +1,97 @@
+﻿@model Payment_Gateway.Models.Information_table
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Payment Gateway";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        <h3>Billing Address</h3>
+        <hr />
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zip" class="control-label"></label>
+                <input asp-for="Zip" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Zip" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <h3>Credit/Debit Card Details</h3>
+
+            <hr />
+
+            <div class="form-group">
+                <label asp-for="Card" class="control-label"></label>
+                <input asp-for="Card" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Card" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expiry" class="control-label"></label>
+                <input asp-for="Expiry" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Expiry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cvv" class="control-label"></label>
+                <input asp-for="Cvv" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Cvv" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <h3>Order Summary</h3>
+
+            <hr />
+
+            <div class="form-group">
+                <label asp-for="Currency" class="control-label"></label>
+                <input asp-for="Currency" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Checkout</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Purchased Items</a>
+</div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.9/jquery.validate.unobtrusive.min.js"></script>
+

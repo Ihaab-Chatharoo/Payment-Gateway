@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Information_table>
+@{
+    Layout = "_Layout";
+    var title = "Orders";
+    ViewData["Title"] = title;
+}
+
+<h3><a asp-action="Create" class="btn btn-sm btn-secondary">Create</a></h3>
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Zip Code</th>
+            <th>Card Number</th>
+            <th>Expiry Date</th>
+            <th>CVV</th>
+            <th>Currency</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="7" class="text-center">No Model Data</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var p in Model)
+            {
+
+                string dateString = p.Expiry.ToString("MM/dd/yyyy");
+                string year = dateString.Substring(6,4);
+                string month = dateString.Substring(0,2);
+                string newDate = month + " - " + year;
+
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.PhoneNumber</td>
+                    <td>@p.Address</td>
+                    <td>@p.Country</td>
+                    <td>@p.City</td>
+                    <td>@p.Zip</td>
+                    <td>XXXXXXXXXXXXXXXX</td>
+                    <td>@newDate</td>
+                    <td>XXX</td>
+                    <td>@p.Currency</td>
+                    <td>@p.Amount</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
